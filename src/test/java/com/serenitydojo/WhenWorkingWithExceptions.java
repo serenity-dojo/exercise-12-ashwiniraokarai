@@ -39,6 +39,13 @@ public class WhenWorkingWithExceptions {
     }
 
     @Test
+    //Ash: Adding another test to cover the case when file does not contain expected text
+    public void catchingExceptionsUnexpectedText() {
+        FileLoader fileLoader = new FileLoader();
+        assertThat(fileLoader.fileContainsText("hello.txt","goodbye")).isFalse();
+    }
+
+    @Test
     public void catchingExceptionsWhenTheFileDoesNotExist() {
         FileLoader fileLoader = new FileLoader();
         assertThat(fileLoader.fileContainsText("does-not-exist.txt","Hello World")).isFalse();
